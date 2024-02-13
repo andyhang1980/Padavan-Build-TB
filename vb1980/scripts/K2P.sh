@@ -10,10 +10,6 @@ config="./configs/templates/K2P.config"     # 默认配置文件
 
 echo "修改 LAN IP 地址"
 sed -i "s/192.168.2/$lan_ip/g" $default_path/defaults.h
-#修改为32+512
-sed -i '/spi-max-frequency/a\\t\tbroken-flash-reset;' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
-sed -i 's/<0xa0000 0xf60000>/<0xa0000 0x1fb0000>/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
-sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
 
 #echo "设置为PPPOE模式并写入账号和密码"
 #sed -i 's/{ "wan_proto", "dhcp" }/{ "wan_proto", "pppoe" }/g' $default_path/defaults.c
